@@ -91,21 +91,18 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-10 offset-lg-1">
-						<div class="domain_search_form_container">
-							<form action="#" id="domain_search_form" class="domain_search_form d-flex flex-md-row flex-column align-items-center justify-content-start">
-								<div class="d-flex flex-row align-items-center justify-content-start">
-									<input type="text" class="domain_search_input" placeholder="yourdomain" required="required">
-									<div class="domain_search_dropdown d-flex flex-row align-items-center justify-content-start">
-										<i class="fa fa-chevron-down" aria-hidden="true"></i>
-										<div class="domain_search_selected">.io</div>
-										<ul>
-											<li>.io</li>
-											<li>.com</li>
-											<li>.net</li>
-										</ul>
-									</div>
-								</div>
-								<button class="domain_search_button d-flex flex-row align-items-center justify-content-center"><img src="images/search.png" alt="">Search</button>
+						<div class="Login_Form">
+							<form class="form-signin">
+
+
+								<p class="home_title">Please login</p>
+								<input type="email" class="form-control" name="email" placeholder="Email Address" required="" autofocus="" id="email" />
+								<input type="password" class="form-control" name="password" placeholder="Password" required="" id="password"/>
+								<label class="checkbox">
+									<input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+								</label>
+								<button onclick="login()" class="domain_search_button d-flex flex-row align-items-center justify-content-center" ><img src="images/search.png" >Login</button>
+
 							</form>
 						</div>
 					</div>
@@ -146,5 +143,55 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="plugins/progressbar/progressbar.min.js"></script>
 <script src="plugins/parallax-js-master/parallax.min.js"></script>
 <script src="js/custom.js"></script>
-</body>
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBImeaQkwvqIUnTxW5ybZig8IfIQGvRK8U",
+        authDomain: "budget-data-e0db7.firebaseapp.com",
+        databaseURL: "https://budget-data-e0db7.firebaseio.com",
+        projectId: "budget-data-e0db7",
+        storageBucket: "budget-data-e0db7.appspot.com",
+        messagingSenderId: "968789462713"
+    };
+    firebase.initializeApp(config);
+
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+
+
+        } else {
+            // No user is signed in.
+        }
+    });
+
+
+    function login(){
+
+
+        var email= document.getElementById("email").value;
+        var password=document.getElementById("password").value;
+
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+
+            window.alert("error : " +errorMessage);
+            // ...
+        });}
+
+
+</script>
+
+
+
+
+
+
+    </body>
 </html>
