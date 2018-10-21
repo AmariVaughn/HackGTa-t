@@ -174,12 +174,20 @@
 						<div class="support_content magic_fade_in">
 							<div class="support_title">Current Income</div>
 							<div class="support_text">
+<<<<<<< HEAD
 								<p>$4009 per month</p>
+=======
+
+>>>>>>> 7b235cdb790d9a14868b0a7bc3ec1ff552f13643
 							</div>
 							<br>
 							<div class="support_title">Preferred Monthly Savings</div>
 							<div class="support_text">
+<<<<<<< HEAD
 								<p>30% $1202.7</p>
+=======
+
+>>>>>>> 7b235cdb790d9a14868b0a7bc3ec1ff552f13643
 							</div>
 						</div>
 
@@ -332,7 +340,18 @@
 	<script src="js/services.js"></script>
 	<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
 	<script>var client = algoliasearch('WUYZD4RTQZ', '9deeb47aeed55485fe922a4a458f4c64');
-    var index = client.initIndex('your_index_name');
+    var index = client.initIndex('stores');
+
+
+    index.search({
+            query: ''
+        },
+        function searchDone(err, content) {
+            if (err) throw err;
+
+            console.log(content.hits);
+        }
+    );
 	</script>
 
 
@@ -340,20 +359,7 @@
 	<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
 	<!-- Initialize autocomplete menu -->
-	<script>
-        var client = algoliasearch('WUYZD4RTQZ', '9deeb47aeed55485fe922a4a458f4c64');
-        var index = client.initIndex('stores');
-        //initialize autocomplete on search input (ID selector must match)
-        index.search({
-                query: 'Target'
-            },
-            function searchDone(err, content) {
-                if (err) throw err;
 
-                console.log(content.hits);
-            }
-        );
-	</script>
 
 
 
