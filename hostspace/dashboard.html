@@ -14,6 +14,15 @@
 	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
 	<link rel="stylesheet" type="text/css" href="styles/services.css">
 	<link rel="stylesheet" type="text/css" href="styles/services_responsive.css">
+	<link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+	<link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+	<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+	<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+	<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+	<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+	<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-places.js"></script>
+	<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+
 </head>
 
 <body>
@@ -266,6 +275,25 @@
 				</div>
 			</div>
 		</div>
+		<div class="row">
+
+		<div class="container justify-content-start">
+			<!-- HTML Markup -->
+			<div class="aa-input-container" id="aa-input-container">
+				<input type="text" id="aa-search-input" class="aa-input-search" placeholder="Enter a location" name="search" autocomplete="off" />
+
+			</div>
+ 		<input type="Text" class="form-control" name="Location Search" placeholder="Enter a location" required="" autofocus="" id="search" />
+			<li class="results">
+				{{  }}
+			</li>
+
+		</div>
+		<div class=" container align-items-center"  id="map" style="width: 600px; height: 400px; background: grey" ></div>
+		<div id="panel" style="width: 600px;"></div>
+
+		</div>
+		<script type="text/javascript" src='Here.js'></script>
 	
 	
 		<!-- Footer -->
@@ -279,9 +307,11 @@
 								<span>Budgeting</span>
 							</div>
 							<div class="copyright">
+
+
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 								Copyright &copy;
-								<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with
+								All rights reserved | This template is made with
 								<i class="fa fa-heart-o" aria-hidden="true"></i> by
 								<a href="https://colorlib.com" target="_blank">Colorlib</a>
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -306,6 +336,36 @@
 	<script src="plugins/progressbar/progressbar.min.js"></script>
 	<script src="plugins/parallax-js-master/parallax.min.js"></script>
 	<script src="js/services.js"></script>
+	<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+	<script>var client = algoliasearch('WUYZD4RTQZ', '9deeb47aeed55485fe922a4a458f4c64');
+    var index = client.initIndex('your_index_name');
+	</script>
+
+
+	<!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
+	<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+	<!-- Initialize autocomplete menu -->
+	<script>
+        var client = algoliasearch('WUYZD4RTQZ', '9deeb47aeed55485fe922a4a458f4c64');
+        var index = client.initIndex('stores');
+        //initialize autocomplete on search input (ID selector must match)
+        index.search({
+                query: 'Target'
+            },
+            function searchDone(err, content) {
+                if (err) throw err;
+
+                console.log(content.hits);
+            }
+        );
+	</script>
+
+
+
+
+
+
 </body>
 
 </html>
