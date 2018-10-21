@@ -157,6 +157,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     };
     firebase.initializeApp(config);
 
+	var ref = firebase.database().ref("users/");
+	ref.on("value", function(snapshot) {
+   console.log(snapshot.val().Income());
+}, function (error) {
+   console.log("Error: " + error.code);
+});
+
     var provider = new firebase.auth.GoogleAuthProvider();
 
 
